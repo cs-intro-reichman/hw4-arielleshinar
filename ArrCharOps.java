@@ -23,6 +23,23 @@ public class ArrCharOps {
         System.out.println(hashCode(arr1));
         System.out.println(hashCode(arr2));
 
+      //  System.out.println(compareTo("abc", "abc"));
+      //  System.out.println(compareTo("abc", "aBc"));
+      //  System.out.println(compareTo("abc", "abcd"));
+      //  System.out.println(compareTo("abc", ""));
+
+
+
+        /*
+         * 
+        boolean test1 = ArrCharOps.compareTo("abc", "abc") == 0;
+        boolean test2 = ArrCharOps.compareTo("abc", "aBc") == 1;
+        boolean test3 = ArrCharOps.compareTo("abc", "abcd") == -1;
+
+        int res = ArrCharOps.compareTo("abc", "");
+        boolean test4 = res != 0 && res != -1 && res != 1;
+         */
+
     }
 
     /*
@@ -190,7 +207,7 @@ public class ArrCharOps {
   //  Note that in this method you have to assume that both strings are not empty.
     public static int compareTo(String str1, String str2) {
         // Replace the following statement with your code
-        if (str1 == null || str2 == null){
+        if (str1 == "" || str2 == ""){
             return -2;
         }
         //id a string is shorter than the ither its lexicographically smaller
@@ -213,13 +230,11 @@ public class ArrCharOps {
                     else{ //since we know they arent equal else mean str2 is larger
                         return -1;
                     }
-
                 }
-
+                
             }
         }
 
         return 0;
     }  
-
 }
