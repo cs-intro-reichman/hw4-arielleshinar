@@ -14,6 +14,7 @@ public class MyString {
         System.out.println(contains("personality", "son")); // true
         System.out.println(contains("personality", "dad")); // false
         System.out.println(contains("resignation", "sign")); // true
+        System.out.println(contains("baba yaga", "babayaga"));
     }
 
     /** Returns the lowercase version of the given string. */
@@ -30,10 +31,9 @@ public class MyString {
     if (str1.length() < str2.length()) {
         return false;
     }
-
-    // Convert both strings to lowercase 
-    str1 = lowerCase(str1);
-    str2 = lowerCase(str2);
+    if (str2 == ""){
+        return true;
+    }
 
     // go over str1 and check if a substring matches str2
     for (int i = 0; i <= str1.length() - str2.length(); i++) {
@@ -55,8 +55,14 @@ public class MyString {
     return false;
 
     }
+}
+   // boolean test1 = MyString.contains("baba yaga", "baba");
+  //  boolean test2 = MyString.contains("baba yaga", "");
+  //  boolean test3 = !MyString.contains("baba yaga", "John Wick is the baba yaga");
+   // boolean test4 = !MyString.contains("baba yaga", "Yaga");
+   // boolean test5 = !MyString.contains("baba yaga", "babayaga");
 
  
 
 
-}
+
