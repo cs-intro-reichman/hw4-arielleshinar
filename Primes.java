@@ -1,5 +1,44 @@
 public class Primes {
     public static void main(String[] args) {
-        // Replace this statement with your code
-    }
+        // check if n is 30 of an arg[]
+
+        int N = Integer.parseInt(args[0]); //the size of the range
+        boolean[] arr = new boolean[N+1];//array holding all the numbers in the range
+     
+        //turns all od the cells values to true except 0 and 1
+        for (int i = 2; i < N+1; i++) {
+            arr[i] = true;
+        }
+
+        //Mark multiples of each prime as false
+        for (int divisor = 2; divisor * divisor < N+1; divisor++) {
+            if (arr[divisor] == true) {  // If divisor is still marked as prime
+                for (int multiple = divisor * divisor; multiple < N+1; multiple += divisor) {
+                    arr[multiple] = false;  // Mark multiples of divisor as non-prime
+                }
+            }
+        }
+
+       // Count and print prime numbers
+       int primeCount = 0;
+       System.out.println("Prime numbers up to " + N + ":");
+       for (int i = 2; i < N+1; i++) {
+           if (arr[i]== true) {  // If the number is marked as prime
+               System.out.println(i);
+               primeCount++;
+           }
+       }
+     //  if (arr[N] = true){
+     //   System.out.println(N);
+     //   primeCount++;
+     //  }
+
+       // Calculate the percentage of primes
+       double percentage = ((double) primeCount / N) * 100;
+
+       // Output the result
+       System.out.println("There are " + primeCount + " primes between 2 and " + N + " (" +  (int)percentage + "% are primes)");
+   }
 }
+
+    
