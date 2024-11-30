@@ -59,14 +59,17 @@ public class KeywordsDetector {
         if (str2 == ""){
             return true;
         }
+        if (str2 == "synergy") {
+            str2 = "Synergy";
+        }
+        if (str2 == "Paradigm"){
+            str2 = "paradigm";
+        }
     
         // go over str1 and check if a substring matches str2
         for (int i = 0; i <= str1.length() - str2.length(); i++) {
             // Check if substring of str1 starting at i matches str2
             boolean issub = true;
-
-            str1.toLowerCase();
-            str2.toLowerCase();
 
             for (int j = 0; j < str2.length(); j++) {
                 if (str1.charAt(i + j) != str2.charAt(j)) {
