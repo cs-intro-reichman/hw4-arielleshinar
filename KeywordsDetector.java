@@ -64,6 +64,10 @@ public class KeywordsDetector {
         for (int i = 0; i <= str1.length() - str2.length(); i++) {
             // Check if substring of str1 starting at i matches str2
             boolean issub = true;
+
+            str1.toLowerCase();
+            str2.toLowerCase();
+
             for (int j = 0; j < str2.length(); j++) {
                 if (str1.charAt(i + j) != str2.charAt(j)) {
                     issub = false;
