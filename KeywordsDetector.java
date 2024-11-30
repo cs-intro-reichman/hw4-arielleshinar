@@ -1,3 +1,5 @@
+import org.w3c.dom.stylesheets.StyleSheetList;
+
 public class KeywordsDetector {
     public static void main(String[] args) {
         String[] sentences = {
@@ -26,5 +28,57 @@ public class KeywordsDetector {
 
     public static void detectAndPrint(String[] sentences, String[] keywords) {
         // Replace this comment with your code
+
+        //first changing everything to lowercaps
+
+        for (int i = 0; i<sentences.length; i++){
+            sentences[0].toLowerCase();
+        }
+
+        for (int i = 0; i<keywords.length; i++){
+            keywords[0].toLowerCase();
+        }
+
+        //nested loop the points at a word in keyword and then checks if its in a sentence
+        for (int j = 0; j< sentences.length; j++) {
+            for (int i = 0; i < keywords.length; i++){
+                if (contains(sentences[j], keywords[i]) == true ){
+                    System.out.println(sentences[j]);
+                    break;
+                }
+            }
+        }
+
     }
+
+    public static boolean contains(String str1, String str2) {
+        // Make sure str2 is not longer than str1
+        if (str1.length() < str2.length()) {
+            return false;
+        }
+        if (str2 == ""){
+            return true;
+        }
+    
+        // go over str1 and check if a substring matches str2
+        for (int i = 0; i <= str1.length() - str2.length(); i++) {
+            // Check if substring of str1 starting at i matches str2
+            boolean issub = true;
+            for (int j = 0; j < str2.length(); j++) {
+                if (str1.charAt(i + j) != str2.charAt(j)) {
+                    issub = false;
+                    break;
+                }
+            }
+            // If match found, return true
+            if (issub == true) {
+                return true;
+            }
+        }
+    
+        // No match found, return false
+        return false;
+    
+        }
+
 }
